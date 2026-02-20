@@ -1,0 +1,38 @@
+random_state: 42
+
+data:
+  url: "https://github.com/dutangc/CASdatasets/raw/refs/heads/master/data/pg15training.rda"
+  dataset_file_path: "data/raw/pg15training.csv"
+  dataset_name: pg15training
+
+dataset:
+  test_size: 0.2
+
+optuna:
+  n_trials: 20
+  n_estimators:
+    min: 10
+    max: 200
+  learning_rate:
+    min: 0.001
+    max: 0.3
+  max_depth:
+    min: 3
+    max: 10
+  num_leaves:
+    min: 20
+    max: 150
+  min_child_samples:
+    min: 5
+    max: 100
+  subsample:
+    min: 0.5
+    max: 1.0
+  colsample_bytree:
+    min: 0.5
+    max: 1.0
+
+model:
+  output_path: "data/output/model.txt"
+  output_params_path: "data/output/params.json"
+  metrics_path: "data/output/metrics.json"
