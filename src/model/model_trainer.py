@@ -115,7 +115,7 @@ class ModelTrainer:
         if not os.path.exists(output_param_path):
             os.makedirs(os.path.dirname(output_param_path), exist_ok=True)
 
-        logger.debug("Save model params to path: ${output_param_path}")
+        logger.debug(f"Save model params to path: ${output_param_path}")
 
         with open(output_param_path, "w") as f:
             json.dump(self.best_params, f)
@@ -129,5 +129,5 @@ class ModelTrainer:
         if not os.path.exists(output_model_path):
             os.makedirs(os.path.dirname(output_model_path), exist_ok=True)
 
-        logger.debug("Save model to path: ${output_model_path}")
+        logger.debug(f"Save model to path: ${output_model_path}")
         self.best_model.booster_.save_model(output_model_path)
