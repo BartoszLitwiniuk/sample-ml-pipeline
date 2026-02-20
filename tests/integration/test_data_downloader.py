@@ -17,9 +17,13 @@ class TestDataDownloader:
 
     def test_download_data_fetches_and_saves_csv(self, tmp_path):
         """download_data fetches .rda from URL and saves CSV to output_path."""
-        #
+        # given
         output_path = tmp_path / "pg15training.csv"
+
+        # when
         DataDownloader.download_data(PG15_URL, str(output_path), DATASET_NAME)
+
+        # then
         assert output_path.exists()
         df = pd.read_csv(output_path)
         assert isinstance(df, pd.DataFrame)
